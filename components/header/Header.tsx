@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import Link from 'next/link'
 import React, { useState, useEffect, use } from 'react';
 import { getCategories } from '../../services';
@@ -18,6 +19,10 @@ const Header = () => {
         <div className="container mx-auto px-10 mb-8">
             <div className="border-b w-full inline-block border-blue-400 py-8">
                 <div className="md:float-left block">
+                    <Head>
+                        <title>Clueless Engineer</title>
+                        <link rel="icon" href="/favicon.ico" />
+                    </Head>
                     <Link href={"/"}>
                         <span className="cursor-pointer font-bold text-4xl text-white">
                             Clueless Engineer
