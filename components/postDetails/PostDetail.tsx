@@ -9,25 +9,25 @@ const PostDetails = ({ post }: any) => {
 
     if (obj) {
       if (obj.bold) {
-        modifiedText  = (<b className='text-xl font-extrabold leading-none' key={index}>{text}</b>);
+        modifiedText  = (<b className='text-xl text-white font-extrabold leading-none' key={index}>{text}</b>);
       }
 
       if (obj.italic) {
-        modifiedText = (<em className='text-xl' key={index}>{text}</em>);
+        modifiedText = (<em className='text-xl text-white' key={index}>{text}</em>);
       }
 
       if (obj.underline) {
-        modifiedText = (<u className='text-xl' key={index}>{text}</u>);
+        modifiedText = (<u className='text-xl text-white' key={index}>{text}</u>);
       }
     }
 
     switch (type) {
       case 'heading-three':
-        return <h3 key={index} className="text-2xl font-semibold mb-4 leading-none">{modifiedText.map((item  : any, i:number) => <React.Fragment key={i}>{item}</React.Fragment>)}</h3>;
+        return <h3 key={index} className="text-2xl text-white font-semibold mb-4 leading-none">{modifiedText.map((item  : any, i:number) => <React.Fragment key={i}>{item}</React.Fragment>)}</h3>;
       case 'paragraph':
-        return <p key={index} className="mb-8 text-xl">{modifiedText.map((item: any, i:number) => <React.Fragment key={i}>{item}</React.Fragment>)}</p>;
+        return <p key={index} className="mb-8 text-xl text-white">{modifiedText.map((item: any, i:number) => <React.Fragment key={i}>{item}</React.Fragment>)}</p>;
       case 'heading-four':
-        return <h4 key={index} className="text-md font-semibold mb-4">{modifiedText.map((item: any, i:number) => <React.Fragment key={i}>{item}</React.Fragment>)}</h4>;
+        return <h4 key={index} className="text-md text-white font-semibold mb-4">{modifiedText.map((item: any, i:number) => <React.Fragment key={i}>{item}</React.Fragment>)}</h4>;
       case 'image':
         return (
           <img
@@ -44,12 +44,12 @@ const PostDetails = ({ post }: any) => {
   };
 
   return (
-    <div className="bg-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8">
+    <div className="bg-transparent shadow-lg rounded-lg lg:p-8 pb-12 mb-8">
       <div className="relative overflow-hidden shadow-md mb-6">
         <img
           src={post.featuredImage.url}
           alt={post.title}
-          className="object-top h-full w-full rounded-t-lg"
+          className="object-top h-full w-full rounded-t-lg opacity-50"
         />
       </div>
       <div className="px-4 lg:px-0">
@@ -62,7 +62,7 @@ const PostDetails = ({ post }: any) => {
               className='align-middle rounded-full'
               src={post.author.photo.url}
             />
-            <p className='inline align-middle text-gray-700 ml-2 text-lg' >{post.author.name}</p>
+            <p className='inline align-middle text-white ml-2 text-lg' >{post.author.name}</p>
           </div>
           <div className="font-medium text-gray-700 flex flex-row justify-center">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline mr-2 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -73,7 +73,7 @@ const PostDetails = ({ post }: any) => {
             </span>
           </div>
         </div>
-        <h1 className="mb-8 text-3xl font-semibold">{post.title}</h1>
+        <h1 className="mb-8 text-3xl font-semibold text-white">{post.title}</h1>
         {post.content.raw.children.map((typeObj : any, index : number)=>{
           const children = typeObj.children.map((item : any, itemIndex: number)=> getContentFragment(itemIndex, item.text, item, item) )
 
